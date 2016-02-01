@@ -16,25 +16,29 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.mapstruct.ap.test.bugs._881z;
+package org.mapstruct.ap.test.bugs._734;
 
-public class ArrayContainerSource {
-    private ArrayOfSource sources;
-
-    public ArrayContainerSource( ArrayOfSource sources ) {
+public class Target {
+    private String foo;
+    private int bar;
+    public String getFoo() {
+        return foo;
+    }
+    public void setFoo(String foo) {
+        this.foo = foo;
+    }
+    public int getBar() {
+        return bar;
+    }
+    public void setBar(int bar) {
+        this.bar = bar;
+    }
+    public Target(String foo, int bar) {
         super();
-        this.sources = sources;
+        this.foo = foo;
+        this.bar = bar;
     }
-
-    public ArrayContainerSource() {
+    public Target() {
         super();
-    }
-
-    public ArrayOfSource getSources() {
-        return sources;
-    }
-
-    public void setSources( ArrayOfSource sources ) {
-        this.sources = sources;
     }
 }

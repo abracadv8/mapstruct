@@ -16,24 +16,25 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.mapstruct.ap.test.bugs._881z;
+package org.mapstruct.ap.test.bugs._734;
 
-public class ArrayContainerTarget {
-    private Target[] targets;
+public class ArrayContainerSource {
+    private ArrayOfSource sources;
 
-    public Target[] getTargets() {
-        return targets;
-    }
-
-    public void setTargets( Target[] targets ) {
-        this.targets = targets;
-    }
-
-    public ArrayContainerTarget( Target[] targets ) {
+    public ArrayContainerSource( ArrayOfSource sources ) {
         super();
-        this.targets = targets;
+        this.sources = sources;
     }
-    public ArrayContainerTarget() {
+
+    public ArrayContainerSource() {
         super();
+    }
+
+    public ArrayOfSource getSources() {
+        return sources;
+    }
+
+    public void setSources( ArrayOfSource sources ) {
+        this.sources = sources;
     }
 }

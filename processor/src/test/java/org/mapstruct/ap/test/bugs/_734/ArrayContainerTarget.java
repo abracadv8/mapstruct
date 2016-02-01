@@ -16,22 +16,24 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.mapstruct.ap.test.bugs._881z;
+package org.mapstruct.ap.test.bugs._734;
 
-import java.util.ArrayList;
-import java.util.List;
+public class ArrayContainerTarget {
+    private Target[] targets;
 
-public class ArrayOfTarget {
-    private List<Target> targets;
-
-    public List<Target> getTargets() {
-        if ( targets == null ) {
-            targets = new ArrayList<Target>();
-        }
+    public Target[] getTargets() {
         return targets;
     }
 
-    public void setTargets( List<Target> targets ) {
+    public void setTargets( Target[] targets ) {
         this.targets = targets;
+    }
+
+    public ArrayContainerTarget( Target[] targets ) {
+        super();
+        this.targets = targets;
+    }
+    public ArrayContainerTarget() {
+        super();
     }
 }
