@@ -64,7 +64,6 @@ import org.mapstruct.ap.internal.util.Strings;
  * @author Sjaak Derksen
  */
 public class MappingResolverImpl implements MappingResolver {
-
     private final FormattingMessager messager;
     private final Types typeUtils;
     private final TypeFactory typeFactory;
@@ -519,6 +518,9 @@ public class MappingResolverImpl implements MappingResolver {
             boolean collectionOrMapTargetTypeHasCompatibleConstructor = false;
 
             if ( sourceType.isCollectionType() || targetType.isMapType() ) {
+                  if ( sourceType.isCollectionType() ) {
+                      System.out.println( "SOURCE IS COLLECTION TYPE" );
+                  }
                 collectionOrMapTargetTypeHasCompatibleConstructor = hasCompatibleCopyConstructor(
                     sourceType,
                     targetType.getImplementationType() != null
@@ -543,8 +545,26 @@ public class MappingResolverImpl implements MappingResolver {
          *         otherwise.
          */
         private boolean hasCompatibleCopyConstructor(Type sourceType, Type targetType) {
-            List<ExecutableElement> targetTypeConstructors = ElementFilter.constructorsIn(
-                targetType.getTypeElement().getEnclosedElements() );
+            List<ExecutableElement> targetTypeConstructors = null;
+
+            if ( targetType == null ) {
+                System.out.println( "--- targetType == null, bailing out (false)" );
+                //return false;
+            }
+            if ( targetType.getTypeElement() == null ) {
+                System.out.println( "--- targetType.getTypeElement() == null, bailing out (false)" );
+                // return false;
+            }
+
+            try {
+                targetTypeConstructors = ElementFilter.constructorsIn(
+                        targetType.getTypeElement().getEnclosedElements() );
+            }
+            catch ( NullPointerException e ) {
+                System.out.println( "--- sourceType " + sourceType );
+                System.out.println( "--- targetType " + targetType );
+                throw e;
+            }
 
             for ( ExecutableElement constructor : targetTypeConstructors ) {
                 if ( constructor.getParameters().size() != 1 ) {
