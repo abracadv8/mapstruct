@@ -545,12 +545,12 @@ public class MappingResolverImpl implements MappingResolver {
             List<ExecutableElement> targetTypeConstructors = null;
 
             if ( targetType == null ) {
-            	// FIXME
+                // FIXME
                 System.out.println( "\n--- targetType == null, bailing out (false)\n" );
                 //return false;
             }
             if ( targetType.getTypeElement() == null ) {
-            	// FIXME
+                // FIXME
                 System.out.println( "\n--- targetType.getTypeElement() == null, bailing out (false)\n" );
                 // Assuming it is false seems to produce a correct mapping
                 //return false;
