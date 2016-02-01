@@ -518,9 +518,6 @@ public class MappingResolverImpl implements MappingResolver {
             boolean collectionOrMapTargetTypeHasCompatibleConstructor = false;
 
             if ( sourceType.isCollectionType() || targetType.isMapType() ) {
-                  if ( sourceType.isCollectionType() ) {
-                      System.out.println( "SOURCE IS COLLECTION TYPE" );
-                  }
                 collectionOrMapTargetTypeHasCompatibleConstructor = hasCompatibleCopyConstructor(
                     sourceType,
                     targetType.getImplementationType() != null
@@ -548,12 +545,15 @@ public class MappingResolverImpl implements MappingResolver {
             List<ExecutableElement> targetTypeConstructors = null;
 
             if ( targetType == null ) {
-                System.out.println( "--- targetType == null, bailing out (false)" );
+            	// FIXME
+                System.out.println( "\n--- targetType == null, bailing out (false)\n" );
                 //return false;
             }
             if ( targetType.getTypeElement() == null ) {
-                System.out.println( "--- targetType.getTypeElement() == null, bailing out (false)" );
-                // return false;
+            	// FIXME
+                System.out.println( "\n--- targetType.getTypeElement() == null, bailing out (false)\n" );
+                // Assuming it is false seems to produce a correct mapping
+                //return false;
             }
 
             try {

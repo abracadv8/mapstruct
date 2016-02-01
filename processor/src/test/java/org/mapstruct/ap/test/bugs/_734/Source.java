@@ -16,22 +16,31 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.mapstruct.ap.test.bugs._881z;
+package org.mapstruct.ap.test.bugs._734;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ArrayOfSource {
-    private List<Source> sources;
-
-    public List<Source> getSources() {
-        if ( sources == null ) {
-            sources = new ArrayList<Source>();
-        }
-        return sources;
+public class Source {
+    public Source(String foo, int bar) {
+        super();
+        this.foo = foo;
+        this.bar = bar;
+    }
+    public Source() {
+        super();
     }
 
-    public void setSources( List<Source> sources ) {
-        this.sources = sources;
+    private String foo;
+    private int bar;
+    public String getFoo() {
+        return foo;
+    }
+    public void setFoo(String foo) {
+        this.foo = foo;
+    }
+    public int getBar() {
+        return bar;
+    }
+    public void setBar(int bar) {
+        this.bar = bar;
     }
 }
+

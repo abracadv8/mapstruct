@@ -16,29 +16,22 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.mapstruct.ap.test.bugs._881z;
+package org.mapstruct.ap.test.bugs._734;
 
-public class Target {
-    private String foo;
-    private int bar;
-    public String getFoo() {
-        return foo;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayOfTarget {
+    private List<Target> targets;
+
+    public List<Target> getTargets() {
+        if ( targets == null ) {
+            targets = new ArrayList<Target>();
+        }
+        return targets;
     }
-    public void setFoo(String foo) {
-        this.foo = foo;
-    }
-    public int getBar() {
-        return bar;
-    }
-    public void setBar(int bar) {
-        this.bar = bar;
-    }
-    public Target(String foo, int bar) {
-        super();
-        this.foo = foo;
-        this.bar = bar;
-    }
-    public Target() {
-        super();
+
+    public void setTargets( List<Target> targets ) {
+        this.targets = targets;
     }
 }
